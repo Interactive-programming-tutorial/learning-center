@@ -17,6 +17,9 @@
 
 虽然安装环境官方并未给出，但经过多次踩坑实验过后得出一个最好用的nodejs版本和npm
 
+若要尝试别的版本讲该项目中的node_module删除，并重新进行npm install的运行
+
+
 因为该项目需要使用gcc编译模块以供加载解释器的程序运行界面，所以nodejs程序需要在有gcc和cmake的环境下进行build
 
 其次该程序使用parcel进行构建，请自行搜索文档并安装其模块库，或直接 `npm install` 进行构建安装parcel程序
