@@ -1,0 +1,12 @@
+@use "sass:math";
+$browser-context: 16;
+
+//un-modified
+@function calc-em($target-px, $context) {
+  @return math.div($target-px, $context) * 1em;
+}
+
+// and modified to accept a base context variable
+@function em($pixels, $context: $browser-context) {
+  @return math.div($pixels, $context) * 1em;
+}

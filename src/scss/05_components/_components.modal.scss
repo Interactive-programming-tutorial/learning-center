@@ -1,0 +1,212 @@
+$controlHeight: 4rem;
+
+.lia-modal {
+  --color-text: white;
+  --color-background: var(--lia-grey-dark);
+  --color-border: var(--lia-grey-light);
+  align-items: center;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  pointer-events: auto;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 9000;
+
+  &__outer {
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    left: 0px;
+    top: 0px;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    overflow-y: auto;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+
+  &__close,
+  &__controls {
+    font-size: 3rem;
+    padding: 0 0.5rem;
+  }
+
+  &__close {
+    align-items: center;
+    display: flex;
+    height: $controlHeight;
+    justify-content: flex-end;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: right;
+    top: 0;
+    width: 100%;
+    z-index: 9001;
+
+    @include breakpoint("sm") {
+      margin: 0;
+      position: absolute;
+      right: 1rem;
+      top: 0.5rem;
+    }
+  }
+
+  &__controls {
+    color: white;
+    display: flex;
+    flex-direction: row-reverse;
+    height: $controlHeight;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 9001;
+
+    @include breakpoint("sm") {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__ctrl-next {
+    right: 0;
+
+    @include breakpoint("sm") {
+      right: 1rem;
+    }
+  }
+
+  &__ctrl-prev {
+    left: 0rem;
+
+    @include breakpoint("sm") {
+      left: 1rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    max-height: 100%;
+    overflow-y: auto;
+    width: 100vw;
+
+    // hide scrollbar for different browsers
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include breakpoint("sm") {
+      margin: 1rem 6rem;
+      max-width: 100vw;
+      width: calc(100vw - (2 * 5rem));
+
+      figcaption {
+        padding: 0;
+      }
+    }
+
+    > * {
+      margin: 0;
+      z-index: 9001;
+    }
+  }
+
+  .lia-figure {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+
+    &__zoom {
+      img {
+        transition: opacity .5s;
+        display: block;
+        opacity: 1;
+      }
+      & img:hover {
+        opacity: 0;
+      }
+      background-position: 50% 50%;
+      position: relative;
+      width: 500px;
+      overflow: hidden;
+    }
+
+    &__media {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      //height: 100%;
+      justify-content: center;
+      width: 100%;
+
+      &[data-media-type="image"] {
+        height: auto;
+
+        img {
+          min-height: 0;
+        }
+      }
+
+      &[data-media-type="iframe"] {
+        height: 100%;
+      }
+    }
+
+    figcaption {
+      margin: 1rem auto;
+      max-width: 65ch;
+      min-height: 0;
+      padding: 0 1rem;
+
+      @include breakpoint("sm") {
+        padding: 0;
+      }
+    }
+  }
+
+  .lia-video-wrapper {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    padding: 0;
+
+    video {
+      height: auto;
+      position: relative;
+      width: auto;
+    }
+  }
+
+  .lia-iframe-wrapper {
+    flex-grow: 1;
+    padding: 0;
+    width: 100vw;
+
+    @include breakpoint("sm") {
+      width: calc(100vw - (2 * 6rem));
+    }
+  }
+
+  .lia-video-wrapper,
+  .lia-iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+  }
+}

@@ -1,0 +1,204 @@
+.lia-support-menu {
+  background-color: rgb(var(--color-background));
+  border-left: $global-border;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 6rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: $global-transition;
+  transition-property: width, transform;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: $support-width-mobile;
+  z-index: 1;
+
+  &--closed {
+    transform: translateX(100%);
+
+    .lia-support-menu__toggler {
+      transform: translate(-6.5rem, -50%);
+    }
+  }
+
+  @include breakpoint("sm") {
+    width: $support-width-desktop;
+    padding-top: 0rem;
+  }
+
+  @include breakpoint("md") {
+    border: none;
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    &--closed {
+      transform: translateX(0);
+
+      .lia-support-menu__toggler {
+        transform: translate(-6.5rem, -50%);
+      }
+    }
+  }
+
+  &__toggler {
+    color: rgb(var(--color-highlight));
+    display: block;
+    font-size: 2rem;
+    left: 0;
+    position: absolute;
+    transform: translate(-6.5rem, -50%);
+    visibility: visible;
+    top: calc(
+      (#{$header-height-mobile} / 2) +
+        (2 * #{map-get($global-spacing, spacing-small)} - (#{$btn-height} / 4))
+    );
+
+    @include breakpoint("sm", "max") {
+      transform: translate(2.1rem, -50%);
+    }
+
+    @include breakpoint("md", "max") {
+      &--closed {
+        transform: translateX(100%);
+      }
+    }
+
+    @include breakpoint("md") {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  &__collapse {
+    display: block;
+    height: 100%;
+  }
+
+  &__nav {
+    display: block;
+    height: 100%;
+    overflow: auto;
+    padding: 1.7rem 2.1rem;
+
+    &:focus {
+      box-shadow: none !important;
+    }
+
+    @include breakpoint("md") {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      padding: 0;
+      overflow: visible;
+    }
+  }
+
+  &__item {
+    align-items: flex-start;
+    color: rgb(var(--color-highlight));
+    display: flex;
+    flex-direction: column;
+    padding: 1.8rem 0;
+
+    &:not(:first-child) {
+      border-top: $global-border;
+    }
+
+    > .icon {
+      margin-bottom: 1.8rem;
+    }
+
+    > button {
+      font-size: 2rem;
+
+      &.icon:before {
+        vertical-align: middle;
+      }
+    }
+
+    // safari fix of container width
+    &--info .lia-support-menu__submenu {
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
+    }
+
+    @include breakpoint("sm") {
+      padding: 1.8rem 0.75rem;
+    }
+
+    @include breakpoint("md") {
+      padding: 0 0.75rem;
+
+      &:not(:first-child) {
+        border-top: none;
+      }
+
+      > .icon {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__submenu {
+    align-items: flex-start;
+    background-color: rgb(var(--color-background));
+    box-shadow: none;
+    color: rgb(var(--color-text));
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    padding: 0;
+    position: relative;
+    right: 0;
+    top: 0;
+    width: max-content;
+
+    @at-root html.lia-variant-dark & {
+      background-color: rgb(var(--lia-grey-dark));
+    }
+
+    .lia-link {
+      text-decoration: none;
+
+      &:not(.active) {
+        color: rgb(var(--color-text));
+      }
+    }
+
+    .lia-btn[aria-checked="true"] {
+      color: rgb(var(--color-highlight));
+    }
+
+    svg {
+      height: 15rem;
+    }
+
+    .lia-settings-editor label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    @include breakpoint("md") {
+      border-radius: $global-radius;
+      box-shadow: 0 0 1rem rgba(128, 128, 128, 0.2);
+      display: none;
+      max-width: 30rem;
+      padding: 1.4rem;
+      position: absolute;
+      top: 5.9rem;
+      z-index: 10;
+
+      &.active {
+        display: flex;
+      }
+    }
+  }
+}

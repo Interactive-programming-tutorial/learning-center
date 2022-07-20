@@ -1,0 +1,41 @@
+$header-height-desktop: 7.8rem;
+$header-height-mobile: 5.6rem;
+
+.lia-header {
+  align-items: center;
+  background-color: rgb(var(--color-background));
+  border-bottom: $global-border;
+  display: flex;
+  flex-direction: row;
+  height: $header-height-mobile;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  @include breakpoint("md") {
+    height: $header-height-desktop;
+    margin: 0 3rem;
+  }
+
+  > * {
+    flex: 1;
+  }
+
+  &__middle {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+
+    // safari fix
+    img {
+      height: 100%;
+    }
+  }
+
+  &__right {
+    position: relative;
+  }
+}

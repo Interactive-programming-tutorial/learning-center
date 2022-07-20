@@ -1,0 +1,27 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text));
+  font-size: calc(
+    var(--global-font-size, $global-font-size) * var(--font-size-multiplier)
+  );
+  font-weight: 400;
+  line-height: $global-line-height;
+}
+
+body,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: var(--global-font-family, $global-font-family);
+}
+
+a,
+button {
+  cursor: pointer;
+}

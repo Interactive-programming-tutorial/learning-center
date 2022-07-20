@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>交互式编程教程</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="../../../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+
+  <script defer type="module" src="../../typescript/webcomponents/preview-lia.ts"></script>
+  <script defer type="module" src="../../typescript/webcomponents/embed/index.ts"></script>
+  <script defer type="module" src="../../typescript/webcomponents/tooltip/index.ts"></script>
+  <script defer type="module" src="../app/index.ts"></script>
+  <script defer type="module" src="../../typescript/webcomponents/editor.ts"></script>
+  <script defer type="module" src="../../typescript/webcomponents/formula.ts"></script>
+  <script defer type="module" src="../../typescript/webcomponents/chart.ts"></script>
+  <script defer type="module" src="../../typescript/webcomponents/format.ts"></script>
+  <script defer type="module" src="../../typescript/webcomponents/terminal.ts"></script>
+
+  <!--script>
+    if (process.env.NODE_ENV !== 'development') {
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          let sw = "./sw.js"
+          try {
+            navigator.serviceWorker.register(sw).then(console.log).catch(console.error);
+          } catch (e) {
+            console.warn("sw: ", e);
+          }
+        })
+      }
+    }
+  </script-->
+  <!--script defer="true" src="https://code.responsivevoice.org/responsivevoice.js?key=blVZszUw"></script-->
+
+  <link rel="shortcut icon" sizes="192x192" href="../../assets/logo_192.png">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="LiaScript">
+  <meta name="msapplication-TileImage" content="../../assets/logo_192.png">
+  <meta name="msapplication-TileColor" content="#0071c5">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="theme-color" content="#000000">
+
+  <meta name="description"
+    content="欢迎使用交互式编程教程-)">
+
+  <link rel="manifest" href="../app/manifest.webmanifest">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="../../assets/logo.png">
+  <link rel="icon" href="../../assets/logo.png" type="image/png">
+
+  <style>
+    .lds-dual-ring {
+      display: inline-block;
+      width: 150px;
+      height: 150px;
+    }
+
+    .lds-dual-ring:after {
+      content: " ";
+      display: block;
+      width: 128px;
+      height: 128px;
+      margin: 1px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      border-color: #000 transparent #000 transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
+    }
+
+    @keyframes lds-dual-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="../../scss/main.scss">
+</head>
+
+<body>
+
+  <noscript>
+    This page requires JavaScript to be enabled!
+  </noscript>
+
+  <div id="IE-message" hidden="true">
+    <h1>交互式编程教程 - 页面遇到了问题</h1>
+    <p>
+      你好!此站点在Internet Explorer 11(及更早版本)中不完全支持。
+    </p>
+    <p>
+      作为另一种选择，您可以使用以下任一选项来浏览
+      网站:
+    </p>
+    <ol>
+      <li>使用火狐浏览器，这里是 FireFox<a href="https://www.mozilla.org/zh-CN/firefox/new/">下载链接。</a></li>
+      <li>使用谷歌浏览器，这里是 Chrome<a href="https://www.google.cn/intl/zh-CN/chrome/">的下载链接</a></li>
+    </ol>
+    <p>
+      Thanks.
+    </p>
+  </div>
+
+</body>
+
+</html>
